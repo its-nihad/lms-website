@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduSphere - Learn Anything, Anywhere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --secondary: #06b6d4;
+      --accent: #10b981;
+      --dark-bg: #0f172a;
+      --dark-surface: #1e293b;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: var(--text-light); line-height: 1.6; }
+    .landing-header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background-color: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #334155; }
+    .logo { font-size: 1.5rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .logo i { color: var(--primary); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: #fff; }
+    .btn-cta { background-color: var(--primary); color: #fff; padding: 0.75rem 1.75rem; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4); }
+    .btn-cta:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
+    .hero { display: flex; align-items: center; justify-content: space-between; gap: 4rem; padding: 6rem 5% 4rem; max-width: 1300px; margin: 0 auto; }
+    .hero-content { flex: 1; }
+    .hero-title { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; background: linear-gradient(135deg, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-title span { background: linear-gradient(135deg, #818cf8, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 540px; }
+    .hero-actions { display: flex; gap: 1rem; align-items: center; }
+    .btn-secondary { background-color: var(--dark-surface); color: var(--text-light); border: 1px solid #334155; padding: 0.75rem 1.75rem; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+    .btn-secondary:hover { background-color: #334155; }
+    .hero-card { flex: 1; background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid #334155; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+    .hero-card-img { width: 100%; border-radius: var(--radius-md); object-fit: cover; height: 320px; }
+    .features { padding: 6rem 5%; max-width: 1300px; margin: 0 auto; }
+    .section-title { text-align: center; font-size: 2.25rem; font-weight: 700; margin-bottom: 3.5rem; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .feature-card { background-color: var(--dark-surface); border: 1px solid #334155; padding: 2rem; border-radius: var(--radius-md); transition: transform 0.3s; }
+    .feature-card:hover { transform: translateY(-6px); }
+    .feature-icon { font-size: 2rem; color: var(--primary); margin-bottom: 1.2rem; }
+    .feature-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+    .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
+    footer { border-top: 1px solid #334155; padding: 2.5rem 5%; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; text-align: center; padding-top: 3rem; }
+      .hero-title { font-size: 2.5rem; }
+      .hero-subtitle { margin: 0 auto 2rem; }
+      .hero-actions { justify-content: center; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="landing-header">
+    <a href="home.html" class="logo"><i class="fa-solid fa-graduation-cap"></i> EduSphere</a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#about">About Us</a></li>
+    </ul>
+    <a href="index.html" class="btn-cta">Launch App</a>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Master New Skills with <span>EduSphere LMS</span></h1>
+        <p class="hero-subtitle">An interactive learning platform providing hands-on coding, video courses, assessments, and verified completion certificates.</p>
+        <div class="hero-actions">
+          <a href="index.html" class="btn-cta"><i class="fa-solid fa-play"></i> Start Learning Now</a>
+          <a href="#features" class="btn-secondary">Explore Features</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" alt="Students learning online" class="hero-card-img" />
+      </div>
+    </section>
+    <section id="features" class="features">
+      <h2 class="section-title">Everything You Need to Excel</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fa-solid fa-laptop-code feature-icon"></i>
+          <h3>Structured Curriculum</h3>
+          <p>Carefully planned modules and step-by-step video lessons designed by industry professionals.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-clipboard-question feature-icon"></i>
+          <h3>Interactive Quizzes</h3>
+          <p>Test your understanding at the end of lessons with instant grading and real-time feedback.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-award feature-icon"></i>
+          <h3>Verified Certificates</h3>
+          <p>Earn official certificates of completion to highlight on your resume and professional profiles.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 EduSphere LMS. All rights reserved.</p>
+  </footer>
+</body>
+</html>
