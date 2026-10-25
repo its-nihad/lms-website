@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduSphere LMS</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>EduSphere</span>
+    </div>
+    <div class="search-bar">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" placeholder="Search courses, skills, topics..." />
+    </div>
+    <div class="nav-actions">
+      <button id="themeToggleBtn" class="icon-btn" title="Toggle Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <div class="user-profile">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="User Avatar" class="avatar" />
+        <span class="user-name">Alex Johnson</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-tab="dashboard">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-item" data-tab="courses">
+          <i class="fa-solid fa-book-open"></i>
+          <span>All Courses</span>
+        </a>
+        <a href="#" class="nav-item" data-tab="my-learning">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>My Learning</span>
+        </a>
+        <a href="#" class="nav-item" data-tab="certificates">
+          <i class="fa-solid fa-award"></i>
+          <span>Certificates</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="overall-progress-card">
+          <h4>Overall Progress</h4>
+          <div class="progress-bar-container">
+            <div id="overallProgressBar" class="progress-bar-fill" style="width: 45%;"></div>
+          </div>
+          <span id="overallProgressText" class="progress-text">45% Completed</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+      <!-- View 1: Dashboard View -->
+      <section id="dashboard" class="tab-view active-view">
+        <div class="welcome-banner">
+          <div class="welcome-text">
+            <h2>Welcome back, Alex! 👋</h2>
+            <p>You've completed <strong>12 lessons</strong> this week. Keep up the momentum!</p>
+          </div>
+          <div class="stats-row">
+            <div class="stat-card">
+              <i class="fa-solid fa-book"></i>
+              <div>
+                <h3 id="statEnrolled">3</h3>
+                <p>Enrolled</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <i class="fa-solid fa-check-circle"></i>
+              <div>
+                <h3 id="statCompleted">1</h3>
+                <p>Completed</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <i class="fa-solid fa-clock"></i>
+              <div>
+                <h3>18.5 hrs</h3>
+                <p>Hours Spent</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <h3>Continue Learning</h3>
+        </div>
+        <div id="continueLearningContainer" class="courses-grid">
+          <!-- Populated via JS -->
+        </div>
+
+        <div class="section-header" style="margin-top: 2rem;">
+          <h3>Recommended Courses</h3>
+        </div>
+        <div id="recommendedCoursesContainer" class="courses-grid">
+          <!-- Populated via JS -->
+        </div>
+      </section>
+
+      <!-- View 2: All Courses Catalogue View -->
+      <section id="courses" class="tab-view">
+        <div class="section-header">
+          <h2>Course Catalog</h2>
+          <div class="filter-controls">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="development">Development</button>
+            <button class="filter-btn" data-category="data">Data Science</button>
+            <button class="filter-btn" data-category="design">Design</button>
+          </div>
+        </div>
+        <div id="catalogCoursesContainer" class="courses-grid">
+          <!-- Populated via JS -->
+        </div>
+      </section>
+
+      <!-- View 3: My Learning View -->
+      <section id="my-learning" class="tab-view">
+        <div class="section-header">
+          <h2>My Enrolled Courses</h2>
+        </div>
+        <div id="myCoursesContainer" class="courses-grid">
+          <!-- Populated via JS -->
+        </div>
+      </section>
+
+      <!-- View 4: Certificates View -->
+      <section id="certificates" class="tab-view">
+        <div class="section-header">
+          <h2>Your Accomplishments</h2>
+        </div>
+        <div id="certificatesContainer" class="certificates-grid">
+          <!-- Populated via JS -->
+        </div>
+      </section>
+
+      <!-- View 5: Course Classroom/Player View -->
+      <section id="course-player" class="tab-view">
+        <button id="backToCoursesBtn" class="btn btn-secondary">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+        <div class="classroom-layout">
+          <!-- Left Column: Video and Tabs -->
+          <div class="classroom-main">
+            <div class="video-wrapper">
+              <iframe id="videoPlayer" src="" title="Lesson Video" allowfullscreen></iframe>
+            </div>
+            <div class="lesson-header">
+              <h2 id="currentLessonTitle">Lesson Title</h2>
+              <button id="markCompleteBtn" class="btn btn-primary">
+                <i class="fa-solid fa-check"></i> Mark as Completed
+              </button>
+            </div>
+            <div class="lesson-description">
+              <p id="currentLessonDescription">Lesson description goes here...</p>
+            </div>
+
+            <!-- Quiz Section (hidden by default) -->
+            <div id="quizContainer" class="quiz-container hidden">
+              <h3 id="quizTitle">Lesson Quiz</h3>
+              <div id="quizContent">
+                <!-- Dynamic Quiz Questions -->
+              </div>
+              <button id="submitQuizBtn" class="btn btn-accent" style="margin-top: 1rem;">Submit Quiz</button>
+              <div id="quizResult" class="quiz-result hidden"></div>
+            </div>
+          </div>
+
+          <!-- Right Column: Course Curriculum Sidebar -->
+          <div class="classroom-sidebar">
+            <div class="curriculum-header">
+              <h3 id="playerCourseTitle">Course Name</h3>
+              <div class="progress-bar-container" style="margin-top: 0.5rem;">
+                <div id="playerProgressBar" class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span id="playerProgressText" class="progress-text">0% Completed</span>
+            </div>
+            <div id="accordionModules" class="modules-accordion">
+              <!-- Modules & Lessons populated via JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal for Certificate Display -->
+  <div id="certificateModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div id="printableCertificate" class="certificate-paper">
+        <div class="cert-border">
+          <i class="fa-solid fa-award cert-icon"></i>
+          <h1>Certificate of Completion</h1>
+          <p class="cert-subtitle">This is proudly presented to</p>
+          <h2 id="certStudentName" class="cert-name">Alex Johnson</h2>
+          <p class="cert-body">for successfully completing all course requirements and assessments for</p>
+          <h3 id="certCourseTitle" class="cert-course">Course Title</h3>
+          <div class="cert-footer">
+            <div class="cert-date-col">
+              <span id="certDate">Date</span>
+              <label>Date Issued</label>
+            </div>
+            <div class="cert-signature-col">
+              <span class="signature">EduSphere Academy</span>
+              <label>Authorized Instructor</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="downloadCertBtn" class="btn btn-primary"><i class="fa-solid fa-print"></i> Print / Save PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
